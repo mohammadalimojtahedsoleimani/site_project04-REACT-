@@ -1,10 +1,10 @@
 import React from 'react';
-import styles from "./Nabar.module.css"
-
+import styles from "./Navbar.module.css"
+import Logo from "../../images/media.png"
 const Navbar = () => {
     return (
         <header className={styles.header}>
-            <div className={styles.Container}>
+            <div className={styles.listContainer}>
                 <ul className={styles.list}>
                     <li>home page</li>
                     <li>products</li>
@@ -12,7 +12,7 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className={styles.logo}>
-                <img src="" alt="phone image"/>
+                <img src={Logo} alt="phone image" className={styles.logo}/>
             </div>
 
         </header>
