@@ -6,7 +6,7 @@ class Card extends Component {
     constructor (props) {
         super (props);
         this.state = {
-            counter : 0,
+            counter : 1,
         }
     }
     downHandler = () => {
@@ -21,17 +21,22 @@ class Card extends Component {
             counter : prevState.counter + 1,
         }))
     }
+
     render() {
         const {image,name,cost} = this.props;
+        const {counter} = this.state;
+        const test = counter * cost.split(" ")[0];
         return (
             <div className={styles.container}>
-                {/*chon khode 0 be sorat defult false shart ro barax dadim ta ejra she*/}
+
                 <img  src={image} alt="phone photo "/>
                 <h3>{name}</h3>
-                <p>{cost}</p>
+                {/*<p>{cost} {counter ? `* ${counter} = ${counter *  Number(cost.split(" ")[0])} $ `:""}</p>*/}
+                <p>{test} $</p>
                 <div className={styles.counter}>
-                    <img className={this.state.counter ? " " : styles.deactive } src={down} alt="axe" onClick={this.downHandler}/>
-                    <span>{this.state.counter}</span>
+                    {/*chon khode 0 be sorat defult false shart ro barax dadim ta ejra she*/}
+                    <img className={!counter && styles.deactive } src={down} alt="axe" onClick={this.downHandler}/>
+                    <span>{counter}</span>
                     <img src={up} alt="axe" onClick={this.upHandler}/>
                 </div>
             </div>
